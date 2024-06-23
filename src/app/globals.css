@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.tiptap > * + * {
+  @apply mt-3;
+}
+
+.tiptap ul,
+.tiptap ol {
+  @apply pl-4;
+}
+
+.tiptap h1,
+.tiptap h2,
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  @apply leading-tight;
+}
+
+.tiptap code {
+  @apply bg-gray-200 text-gray-600;
+}
+
+.tiptap pre {
+  @apply bg-black text-white rounded-md font-mono p-3;
+
+  code {
+    @apply bg-transparent text-inherit text-xs p-0;
+  }
+}
+
+.tiptap mark {
+  @apply bg-yellow-200;
+}
+
+.tiptap img {
+  @apply max-w-full h-auto;
+}
+
+.tiptap hr {
+  @apply my-4;
+}
+
+.tiptap blockquote {
+  @apply border-l-2 border-gray-300 pl-4;
+}
+
+.tiptap hr {
+  @apply border-none border-t-2 border-gray-300 my-8;
+}
+
+.tiptap ul[data-type="taskList"] {
+  @apply list-none p-0;
+
+  li {
+    @apply flex items-center;
+
+    > label {
+      @apply flex-none mr-2 select-none;
+    }
+
+    > div {
+      @apply flex-1;
+    }
+  }
+}
+
+/* Remova as classes .editor e .editor__content de globals.css */
